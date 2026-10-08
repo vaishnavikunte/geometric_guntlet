@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEON RUNNER: CYBER CITY</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="hud">
+          <div class="hud-top">
+            <div class="hud-left">
+              <h2>LEVEL 01</h2>
+              <div class="lives">♥ ♥ ♥</div>
+            </div>
+            <div class="hud-right">
+              <h2>SCORE: <span id="score">0</span></h2>
+            </div>
+          </div>
+        </div>
+
+        <div id="ui-overlay">
+          <h1>NEON RUNNER</h1>
+          <h2>CYBER CITY</h2>
+          <p class="controls-title" style="margin-top: 20px; font-size: 16px; color: #fff;">PRESS SPACE TO START</p>
+          <ul style="margin-top: 20px;">
+            <li>A / D - Move Lane</li>
+            <li>SPACE - Jump</li>
+            <li>DOWN - Slide</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
