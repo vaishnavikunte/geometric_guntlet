@@ -12,6 +12,29 @@ export class Matrix4 {
         ];
     }
 
+    static identity(): Matrix4 {
+        return new Matrix4();
+    }
+
+    clone(): Matrix4 {
+        const m = new Matrix4();
+        for (let r = 0; r < 4; r++) {
+            for (let c = 0; c < 4; c++) {
+                m.values[r][c] = this.values[r][c];
+            }
+        }
+        return m;
+    }
+
+    copyFrom(m: Matrix4): this {
+        for (let r = 0; r < 4; r++) {
+            for (let c = 0; c < 4; c++) {
+                this.values[r][c] = m.values[r][c];
+            }
+        }
+        return this;
+    }
+
     multiply(m: Matrix4): Matrix4 {
         const result = new Matrix4();
         for (let r = 0; r < 4; r++) {
@@ -24,6 +47,19 @@ export class Matrix4 {
             }
         }
         return result;
+    }
+
+    multiplyTo(m: Matrix4, out: Matrix4): Matrix4 {
+        for (let r = 0; r < 4; r++) {
+            for (let c = 0; c < 4; c++) {
+                out.values[r][c] = 
+                    this.values[r][0] * m.values[0][c] +
+                    this.values[r][1] * m.values[1][c] +
+                    this.values[r][2] * m.values[2][c] +
+                    this.values[r][3] * m.values[3][c];
+            }
+        }
+        return out;
     }
 
     multiplyVector(v: Vector4): Vector4 {
